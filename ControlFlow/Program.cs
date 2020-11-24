@@ -59,31 +59,29 @@ namespace ControlFlow
         // Suspended" instead. Don't Worry about input validation.
         public static string SpeedTrap(int speedLimit, int speedCar)
         {
-            var Demerit = 0;
-            var Diff = speedCar - speedLimit;
-            if (speedLimit >= speedCar)
-                return Convert.ToString("Okay");
-            else
-            {
-                    for (var Fastboi = 5;
-                      Diff >= Fastboi; Fastboi += 1)
-                        if (Fastboi % 5 == 0)
-                            Demerit++;
-                if (12 < Demerit)
-                    return Convert.ToString("License Suspended");
-                else
-                    return Convert.ToString(Demerit);
-            }
+            if (speedCar <= speedLimit)
+                return "Okay";
 
-              
+            int Demerits;
+
+            Demerits = (speedCar - speedLimit) / 5;
+
+            if (Demerits > 12)
+                return "License Suspended";
+           
+            return Convert.ToString(Demerits);
         }
 
-        // Part 2, Control Flow. Come back to this section after completing the For/Foreach/While loops.
 
-        // 2.1 - Write a method to count how many integers between two numbers are divisible by a divider with
-        // no remainder. Return the count. For example, if minNumber = 1 and maxNumber = 6, and the divider is 3 then
-        // output should be 2.
-        public static int DivisibleByNumber(int minNumber, int maxNumber, int divider)
+
+
+
+    // Part 2, Control Flow. Come back to this section after completing the For/Foreach/While loops.
+
+    // 2.1 - Write a method to count how many integers between two numbers are divisible by a divider with
+    // no remainder. Return the count. For example, if minNumber = 1 and maxNumber = 6, and the divider is 3 then
+    // output should be 2.
+    public static int DivisibleByNumber(int minNumber, int maxNumber, int divider)
         {
             return default;
         }
