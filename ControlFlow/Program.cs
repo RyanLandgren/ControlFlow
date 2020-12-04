@@ -59,38 +59,37 @@ namespace ControlFlow
         // Suspended" instead. Don't Worry about input validation.
         public static string SpeedTrap(int speedLimit, int speedCar)
         {
-            if (speedCar <= speedLimit)
-                return "Okay";
-
-            int Demerits;
-
-            Demerits = (speedCar - speedLimit) / 5;
-
-            if (Demerits > 12)
+            int demeritPoints = 0;
+            demeritPoints = (speedCar - speedLimit) / 5;
+            if (demeritPoints > 12)
                 return "License Suspended";
-           
-            return Convert.ToString(Demerits);
+            if (speedCar > speedLimit)
+                return Convert.ToString(demeritPoints);
+            return "Okay";
         }
 
-
-
-
-
-    // Part 2, Control Flow. Come back to this section after completing the For/Foreach/While loops.
-
-    // 2.1 - Write a method to count how many integers between two numbers are divisible by a divider with
-    // no remainder. Return the count. For example, if minNumber = 1 and maxNumber = 6, and the divider is 3 then
-    // output should be 2.
-    public static int DivisibleByNumber(int minNumber, int maxNumber, int divider)
+        // Part 2, Control Flow. Come back to this section after completing the For/Foreach/While loops
+        // 2.1 - Write a method to count how many integers between two numbers are divisible by a divider with
+        // no remainder. Return the count. For example, if minNumber = 1 and maxNumber = 6, and the divider is 3 then
+        // output should be 2.
+        public static int DivisibleByNumber(int minNumber, int maxNumber, int divider)
         {
-            return default;
+            int remainder = 0;
+            for (int a = minNumber; a <= maxNumber; a++)
+                if (a % divider == 0)
+                    remainder++;
+            return remainder;
+
         }
 
         // 2.2 - Write a method to calculate the sum of all the integers and return it. For example if
         // the program enters (2, 3, 5, 1) then the return should be 11.
         public static int SumIntegers(params int[] numbers)
         {
-            return default;
+            int total = 0;
+            for (int i = 0; i < numbers.Length; i++)
+                total += numbers[i];
+            return total;
         }
 
         // 2.3 - Write a method to compute the factorial of an integer return it. For example, if the
@@ -98,14 +97,21 @@ namespace ControlFlow
         // that 0! = 1.
         public static int FindFactorial(int number)
         {
-            return default;
+            if (number == 0)
+                return 1;
+            return number * FindFactorial(number - 1);
         }
 
         // 2.4 - Write a method that takes an array of integers. Then find the maximum of the numbers
         // and return it. For example, if the numbers are {5, 3, 8, 1, 4}, the program should return 8.
         public static int MaximumNumber(params int[] numbers)
         {
-            return default;
+            int Max = 0;
+            for (int i = 0; i < numbers.Length; i++) 
+            {
+                if (numbers[i] > Max) Max = numbers[i];
+            }
+            return Max;
         }
     }
 
